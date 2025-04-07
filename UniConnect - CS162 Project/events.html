@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UniConnect - Events</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="project.css" />
+</head>
+<body>
+    <header>
+        <nav class="Navigation-Bar">
+            <div class="left-display">
+                <i class="fa-brands fa-connectdevelop"></i>
+                <div class="logo">
+                    <h1>UniConnect</h1>
+                    <p>Connect, Collaborate, Conquer!</p>
+                </div>
+            </div>
+
+            <ul class="Navigation-Links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="colleges.html" class="active">Colleges</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html">User Profile</a></li>
+                <li><a href="updates.html">Recent Updates</a></li>
+                <li><a href="support.html">Help/Support</a></li>
+            </ul>
+
+            <div class="Login-Search">
+                <input type="text" placeholder="Search" class="Search-box">
+                <button class="log-in" onclick="window.location.href='project.html'">Login</button>
+                <button class="register" onclick="window.location.href='register.html'">Register</button>
+            </div>
+        </nav>
+    </header>
+
+    <h1>FIND YOUR EXCITING EVENTS OVER HERE!</h1>
+    <div class="add-event-button">
+        <button id="addEventBtn">+ Add New Event</button>
+    </div>
+
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Event</h2>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Event Title:</label>
+                    <input type="text" id="eventTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date:</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventTime">Time:</label>
+                    <input type="time" id="eventTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventVenue">Venue:</label>
+                    <input type="text" id="eventVenue" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventMode">Mode:</label>
+                    <select id="eventMode" required>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventPriority">Priority:</label>
+                    <select id="eventPriority" required>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventImage">Image URL:</label>
+                    <input type="url" id="eventImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description:</label>
+                    <textarea id="eventDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="teamSize">Team Size:</label>
+                    <input type="text" id="teamSize" placeholder="e.g., 2-5 members" required>
+                </div>
+                <div class="form-group">
+                    <label for="prizeWorth">Prize Worth:</label>
+                    <input type="text" id="prizeWorth" placeholder="e.g., 30,000 Rs/-" required>
+                </div>
+                <button type="submit">Add Event</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="eventDetailsModal" class="modal">
+        <div class="modal-content event-details-content">
+            <span class="close" id="closeDetails">&times;</span>
+            <div id="eventDetailsContent"></div>
+        </div>
+    </div>
+
+    <div class="event-grid" id="eventGrid">
+        <!-- Existing events -->
+        <div class="event-link" data-title="AI Workshop" data-date="March 25, 2025" data-time="10:00 AM" 
+            data-venue="Tech Hub" data-mode="Online" data-priority="High" 
+            data-description="Join us for an exciting AI workshop where you'll learn about the latest developments in artificial intelligence and machine learning. Perfect for beginners and intermediate developers."
+            data-team-size="2-4 members" data-prize-worth="25,000 Rs/-"
+            data-image="photos/ai workshop.png">
+            <div class="event-card">
+                <img src="photos/ai workshop.png" alt="Event Image" class="event-image">
+                <h2>AI Workshop</h2>
+                <p>Date: 25 March 2025</p>
+                <p>Priority: High</p>
+            </div>
+        </div>
+        <div class="event-link" data-title="Google Hackathon" data-date="April 10, 2025" data-time="09:00 AM"
+            data-venue="Google Office" data-mode="Hybrid" data-priority="Medium"
+            data-description="Join the Google Hackathon to solve real-world problems using Google technologies. Great opportunity to showcase your skills and win amazing prizes."
+            data-team-size="3-5 members" data-prize-worth="50,000 Rs/-"
+            data-image="photos/google_hackathon.jpg">
+            <div class="event-card">
+                <img src="photos/google_hackathon.jpg" alt="Event Image" class="event-image">
+                <h2>Google Hackathon</h2>
+                <p>Date: 10 April 2025</p>
+                <p>Priority: Medium</p>
+            </div>
+        </div>
+        <div class="event-link" data-title="Healthcare Hackathon with AI" data-date="May 20, 2025" data-time="11:00 AM"
+            data-venue="Virtual Platform" data-mode="Online" data-priority="High"
+            data-description="Join us for an exciting hackathon where clinicians, engineers, business leaders, and students collaborate to develop AI-powered solutions that address real-world clinical challenges."
+            data-team-size="2-5 members" data-prize-worth="30,000 Rs/-"
+            data-image="photos/Healthcare_AI.webp">
+            <div class="event-card">
+                <img src="photos/Healthcare_AI.webp" alt="Event Image" class="event-image">
+                <h2>Healthcare Hackathon with AI</h2>
+                <p>Date: 20 May 2025</p>
+                <p>Priority: High</p>
+            </div>
+        </div>
+        
+        <div class="event-link" data-title="IITJ Hackathon" data-date="September 15, 2025" data-time="10:00 AM"
+        data-venue="IIT Jodhpur" data-mode="offline" data-priority="Medium"
+        data-description="Registration open till 1st September."
+        data-team-size="3-5 members" data-prize-worth="25,000 Rs/-"
+        data-image="photos/IITJ.png">
+        <div class="event-card">
+            <div class="event-badge offline">Offline</div>
+            <div class="event-badge priority medium">Medium Priority</div>
+            <img src="photos/IITJ.png" alt="IIT Jodhpur Hackathon" class="event-image">
+            <div class="event-content">
+                <h2 class="event-title">IIT Jodhpur Hackathon</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-calendar"></i> 15-18 September 2025</p>
+                    <p><i class="fas fa-trophy"></i> Prize: 25,000 Rs/-</p>
+                    <div class="event-card">
+                        <div class="event-badge offline">Offline</div>
+                        <div class="event-badge priority high">High Priority</div>
+                        <img src="game_dev.avif" alt="Game Development Hackathon" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">Game Development Hackathon</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 28 January 2026</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 85,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 4-6 members</p>
+                            </div>
+                            <button class="view-details-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-link" data-title="Game Development Hackathon" data-date="January 28, 2026" data-time="10:00 AM"
+        data-venue="Gaming Arena, Pune" data-mode="offline" data-priority="High"
+        data-description="Create an innovative game in 48 hours and compete for exciting prizes."
+        data-team-size="4-6 members" data-prize-worth="85,000 Rs/-"
+        data-image="photos/game_dev.avif">
+        <div class="event-card">
+            <div class="event-badge offline">Offline</div>
+            <div class="event-badge priority high">High Priority</div>
+            <img src="game_dev.avif" alt="Game Development Hackathon" class="event-image">
+            <div class="event-content">
+                <h2 class="event-title">Game Development Hackathon</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-calendar"></i> 28 January 2026</p>
+                    <p><i class="fas fa-trophy"></i> Prize: 85,000 Rs/-</p>
+                    <p><i class="fas fa-users"></i> Team: 4-6 members</p>
+                </div>
+                <button class="view-details-btn">View Details</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="event-link" data-title="National Coding Championship" data-date="August 1, 2025" data-time="8:00 PM"
+        data-venue="Virtual Event" data-mode="online" data-priority="Medium"
+        data-description="Join the biggest coding competition of the year. Showcase your programming skills and win exciting prizes."
+        data-team-size="individual" data-prize-worth="1500 Rs/-"
+        data-image="photos/nationalcode.avif">
+        <div class="event-card">
+            <div class="event-badge online">Online</div>
+            <div class="event-badge priority medium">Medium Priority</div>
+            <img src="photos/nationalcode.avif" alt="National Coding Championship" class="event-image">
+            <div class="event-content">
+                <h2 class="event-title">National Coding Championship</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-calendar"></i> 1 August 2025</p>
+                    <p><i class="fas fa-trophy"></i> Prize: 1,500 Rs/-</p>
+                    <p><i class="fas fa-user"></i> Individual</p>
+                </div>
+                <button class="view-details-btn">View Details</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="event-link" data-title="IIIT Vadodara Hackathon" data-date="April 18, 2025" data-time="10:30 AM"
+        data-venue="Gandhinagar" data-mode="offline" data-priority="Medium"
+        data-description="HACKIIITV is the annual hackathon exclusively for students of the Indian Institute of Information Technology, Vadodara (IIITV) and IIITV Diu. It's a dynamic event where students form teams and collaborate intensively over a short period to develop innovative software projects. Students from all colleges can take part."
+        data-team-size="4 members" data-prize-worth="50,000 Rs/-"
+        data-image="photos/hack_IIITV.png">
+        <div class="event-card">
+            <div class="event-badge offline">Offline</div>
+            <div class="event-badge priority medium">Medium Priority</div>
+            <img src="photos/hack_IIITV.png" alt="HackIIITV 2025" class="event-image">
+            <div class="event-content">
+                <h2 class="event-title">HackIIITV 2025</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-calendar"></i> 18-21 April 2025</p>
+                    <p><i class="fas fa-trophy"></i> Prize: 50,000 Rs/-</p>
+                    <p><i class="fas fa-users"></i> Team: 4 members</p>
+                </div>
+                <button class="view-details-btn">View Details</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="event-link" data-title="Hack This Fall 2025" data-date="June 8, 2025" data-time="10:30 AM"
+        data-venue="Virtual Event" data-mode="online" data-priority="Medium"
+        data-description="Hack This Fall 2025 Virtual is a 36-hour online hackathon happening from June 8th to 10th, 2025, for hackers and builders worldwide! Join us from anywhere and be part of this incredible experience. Whether you're a part of our global community or just joining in, we can't wait to welcome you!"
+        data-team-size="3-5 members" data-prize-worth="20,000 Rs/-"
+        data-image="photos/hack_fall.webp">
+        <div class="event-card">
+            <div class="event-badge online">Online</div>
+            <div class="event-badge priority medium">Medium Priority</div>
+            <img src="photos/hack_fall.webp" alt="Hack This Fall 2025" class="event-image">
+            <div class="event-content">
+                <h2 class="event-title">Hack This Fall 2025</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-calendar"></i> 8 June 2025</p>
+                    <p><i class="fas fa-trophy"></i> Prize: 20,000 Rs/-</p>
+                    <p><i class="fas fa-users"></i> Team: 3-5 members</p>
+                </div>
+            <button class="view-details-btn">View Details</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="event-link" data-title="Hack NIT Rourkela 2025" data-date="April 5, 2025" data-time="9:30 AM"
+        data-venue="Virtual Event" data-mode="online" data-priority="Medium"
+        data-description="HackNITR 6.0 is an exciting hackathon that challenges you to unleash your creativity and develop cutting-edge tech solutions for real-world problems. It brings together a vibrant community of tech enthusiasts, sparking innovation and collaboration. Intending to grow our local community and deliver an unforgettable experience, this event promises a thrilling mix of fun, learning, and competition. Get ready for an epic journey starting 5th April 2025!"
+        data-team-size="4 members" data-prize-worth="35,000 Rs/-"
+        data-image="photos/NITR.jpg">
+        <div class="event-card">
+            <div class="event-badge online">Online</div>
+            <div class="event-badge priority medium">Medium Priority</div>
+            <img src="photos/NITR.jpg" alt="Hack NITR 2025" class="event-image">
+            <div class="event-content">
+                <h2 class="event-title">Hack NITR 2025</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-calendar"></i> 5 April 2025</p>
+                    <p><i class="fas fa-trophy"></i> Prize: 35,000 Rs/-</p>
+                    <p><i class="fas fa-users"></i> Team: 4 members</p>
+                </div>
+                <button class="view-details-btn">View Details</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Event</h2>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Event Title:</label>
+                    <input type="text" id="eventTitle" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventDate">Date:</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventTime">Time:</label>
+                        <input type="time" id="eventTime" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eventVenue">Venue:</label>
+                    <input type="text" id="eventVenue" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventMode">Mode:</label>
+                        <select id="eventMode" required>
+                            <option value="Online">Online</option>
+                            <option value="Offline">Offline</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventPriority">Priority:</label>
+                        <select id="eventPriority" required>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teamSize">Team Size:</label>
+                        <input type="text" id="teamSize" placeholder="e.g., 2-5 members" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prizeWorth">Prize Worth:</label>
+                        <input type="text" id="prizeWorth" placeholder="e.g., 30,000 Rs/-" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eventImage">Image URL:</label>
+                    <input type="url" id="eventImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description:</label>
+                    <textarea id="eventDescription" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Add Event</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="eventDetailsModal" class="modal">
+        <div class="modal-content event-details-content">
+            <span class="close" id="closeDetails">&times;</span>
+            <div id="eventDetailsContent" class="event-details-view">
+                <!-- Event details will be dynamically inserted here -->
+            </div>
+            <div id="findTeamButtonContainer" class="action-buttons">
+                <!-- Button will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 UniConnect. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>

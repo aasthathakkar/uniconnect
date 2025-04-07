@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UniConnect - Help & Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="project.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="Navigation-Bar">
+            <div class="left-display">
+                <i class="fa-brands fa-connectdevelop"></i>
+                <div class="logo">
+                    <h1>UniConnect</h1>
+                    <p>Connect, Collaborate, Conquer!</p>
+                </div>
+            </div>
+            
+            <ul class="Navigation-Links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="colleges.html">Colleges</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html">User Profile</a></li>
+                <li><a href="updates.html">Recent Updates</a></li>
+                <li><a href="support.html" class="active">Help/Support</a></li>
+            </ul>
+            
+            <div class="Login-Search">
+                <input type="text" placeholder="Search" class="Search-box" id="searchBar">
+                <button class="log-in" onclick="window.location.href='project.html'">Login</button>
+                <button class="register" onclick="window.location.href='register.html'">Register</button>
+            </div>
+        </nav>
+    </header>
+    
+    <main style="padding: 40px;">
+        <h2>🛟 Need Help?</h2>
+        
+        <section class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq">
+                <h4>How do I register?</h4>
+                <p>Click on the "Register" button in the top right and fill in your details.</p>
+            </div>
+            
+            <div class="faq">
+                <h4>How to change my college?</h4>
+                <p>Go to the Profile page and click on Edit to update your college info.</p>
+            </div>
+            
+            <div class="faq">
+                <h4>Can I connect with students from other colleges?</h4>
+                <p>Yes, our Events and Roadmaps are open across campuses.</p>
+            </div>
+        </section>
+        
+        <section class="contact-support">
+            <h3>Contact Support</h3>
+            <form id="support-form">
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Describe your issue or question..." rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    
+    <script>
+    document.getElementById('support-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("Thank you! Our support team will reach out shortly.");
+    });
+    </script>
+</body>
+</html>

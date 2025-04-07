@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UniConnect - User Profile</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="project.css" />
+</head>
+<body>
+    <header>
+        <nav class="Navigation-Bar">
+            <div class="left-display">
+                <i class="fa-brands fa-connectdevelop"></i>
+                <div class="logo">
+                    <h1>UniConnect</h1>
+                    <p>Connect, Collaborate, Conquer!</p>
+                </div>
+            </div>
+
+            <ul class="Navigation-Links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="colleges.html">Colleges</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html" class="active">User Profile</a></li>
+                <li><a href="updates.html">Recent Updates</a></li>
+                <li><a href="support.html">Help/Support</a></li>
+            </ul>
+
+            <div class="Login-Search">
+                <input type="text" placeholder="Search" class="Search-box">
+                <button class="log-in" onclick="window.location.href='project.html'">Login</button>
+                <button class="register" onclick="window.location.href='register.html'">Register</button>
+            </div>
+        </nav>
+    </header>
+
+    <!--Profile Details-->
+    <a href="dashboard.html" class="back-button">← Back to Dashboard</a>
+    
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/120" alt="Profile Picture">
+            <h2 content="true" id="edit-name">Your Name</h2>
+            <p content="true" id="edit-email">youremail@example.com</p>
+        </div>
+        
+        <div class="profile-section">
+            <h3>College</h3>
+            <div class="editable" content="true" id="edit-college">Your College Name</div>
+        </div>
+        
+        <div class="profile-section">
+            <h3>Interests</h3>
+            <div class="editable" content="true" id="edit-interests">Coding, Music, Reading</div>
+        </div>
+        
+        <div class="profile-section">
+            <h3>Skills</h3>
+            <div class="editable" content="true" id="edit-skills">Java, Python, Web Dev</div>
+        </div>
+        
+        <div class="profile-section">
+            <h3>Achievements</h3>
+            <div class="editable" content="true" id="edit-achievements">Hackathon winner, Top 10 in coding contest</div>
+        </div>
+        
+        <div class="profile-section">
+            <h3>Badges</h3>
+            <div class="editable" content="true" id="edit-badges">💻 👩‍💻 🚀</div>
+        </div>
+        
+        <button class="save-button" onclick="saveProfile()">Save Profile</button>
+    </div>
+    
+    <!-- JavaScript to Fetch Profile Data -->
+    <script>
+    function saveProfile() {
+        const userData = {
+            name: document.getElementById('edit-name').textContent,
+            email: document.getElementById('edit-email').textContent,
+            college: document.getElementById('edit-college').textContent,
+            interests: document.getElementById('edit-interests').textContent,
+            skills: document.getElementById('edit-skills').textContent,
+            achievements: document.getElementById('edit-achievements').textContent,
+            badges: document.getElementById('edit-badges').textContent,
+        };
+        
+        console.log("To be sent to backend:", userData);
+    }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UniConnect - Updates</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="project.css" />
+</head>
+<body>
+    <header>
+        <nav class="Navigation-Bar">
+            <div class="left-display">
+                <i class="fa-brands fa-connectdevelop"></i>
+                <div class="logo">
+                    <h1>UniConnect</h1>
+                    <p>Connect, Collaborate, Conquer!</p>
+                </div>
+            </div>
+
+            <ul class="Navigation-Links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="colleges.html">Colleges</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html">User Profile</a></li>
+                <li><a href="updates.html" class="active">Recent Updates</a></li>
+                <li><a href="support.html">Help/Support</a></li>
+            </ul>
+
+            <div class="Login-Search">
+                <input type="text" placeholder="Search" class="Search-box" id="searchBar">
+                <button class="log-in" onclick="window.location.href='project.html'">Login</button>
+                <button class="register" onclick="window.location.href='register.html'">Register</button>
+            </div>
+        </nav>
+    </header>
+    
+    <main style="padding: 40px;">
+        <h2>📰 Recent Updates</h2>
+        <div id="updates-container">
+        </div>
+    </main>
+    
+    <script>
+    const updates = [
+        {
+            category: "🏫 College News",
+            title: "IIIT Hyderabad Added",
+            description: "We've added IIIT Hyderabad to our platform. Explore and connect!",
+            date: "April 6, 2025"
+        },
+        
+        {
+            category: "🏆 Achievements",
+            title: "SimuLife Hackathon Winners",
+            description: "Team CodeBlaze from NIT Surathkal took home the grand prize! 🚀",
+            date: "April 5, 2025"
+        },
+        
+        {
+            category: "📅 Event Announcements",
+            title: "Upcoming Career Fair",
+            description: "Join our virtual career fair with 50+ companies on April 20th.",
+            date: "April 3, 2025"
+        },
+        
+        {
+            category: "🛠️ Platform Updates",
+            title: "Profile Picture Upload Enabled",
+            description: "Now you can personalize your profile with an avatar!",
+            date: "April 1, 2025"
+        },
+        
+        {
+            category: "📅 Event Announcements",
+            title: "Project Submission Deadline Extended",
+            description: "You now have until April 15 to submit CS162 project!",
+            date: "April 6, 2025"
+        }
+    ];
+    const updatesContainer = document.getElementById("updates-container");
+
+    const grouped = {};
+    updates.forEach(update => {
+        if (!grouped[update.category]) {
+            grouped[update.category] = [];
+        }
+        grouped[update.category].push(update);
+    });
+
+    for (const category in grouped) {
+        const section = document.createElement("section");
+        section.className = "update-category";
+        section.innerHTML = `<h3>${category}</h3>`;
+        grouped[category].forEach(update => {
+            const card = document.createElement("div");
+            card.className = "update-card";
+            card.innerHTML = `
+            <h4>${update.title}</h4>
+            <p>${update.description}</p>
+            <span class="date">${update.date}</span>
+        `;
+        section.appendChild(card);
+    });
+    
+    updatesContainer.appendChild(section);
+}
+
+const searchBar = document.getElementById("searchBar");
+searchBar.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const allUpdates = document.querySelectorAll(".update-card");
+    allUpdates.forEach(update => {
+        const text = update.textContent.toLowerCase();
+        update.style.display = text.includes(query) ? "block" : "none";
+    });
+    });
+</script>
+</body>
+</html>
