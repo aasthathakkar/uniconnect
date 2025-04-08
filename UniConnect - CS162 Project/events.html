@@ -7,6 +7,1299 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="project.css" />
+
+<style>
+    * Reset and Base Styles */
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root {
+--primary-color: #6a0dad;
+--primary-light: #9b4dca;
+--primary-dark: #4a0080;
+--secondary-color: #ff7e5f;
+--text-color: #333333;
+--text-light: #666666;
+--background-color: #f8f9fa;
+--card-color: #ffffff;
+--border-color: #e0e0e0;
+--success-color: #28a745;
+--warning-color: #ffc107;
+--danger-color: #dc3545;
+--info-color: #17a2b8;
+--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+--shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+--shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+--border-radius-sm: 4px;
+--border-radius-md: 8px;
+--border-radius-lg: 12px;
+--transition-fast: 0.2s ease;
+--transition-normal: 0.3s ease;
+--transition-slow: 0.5s ease;
+--font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+*Navigation Page*/
+.Navigation-Bar {
+    background-color: #4B0082;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: fixed;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.left-display {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.left-display .fa-connectdevelop {
+    font-size: 60px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.Navigation-Links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.Navigation-Links li a{
+    display: inline;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:  18px;
+    transition: color 0.2s ease;
+}
+
+.Navigation-Links a:hover {
+    color: #c9ac0a;
+}
+
+.Login-Search {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Search-Box {
+    background: white;
+    font-size: 30px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    padding: 8px 16px;
+    border: 3px solid white;
+}
+
+.log-in, .register {
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+.log-in {
+    background-color: whitesmoke;
+    color: #5D3FD3;
+}
+
+.log-in:hover {
+    background: #c9ac0a;
+    color: #5D3FD3;
+}
+
+.register {
+    background-color: whitesmoke;
+    color: #5D3FD3;
+}
+
+.register:hover {
+    background: #c9ac0a;
+    color: #5D3FD3;
+}
+
+/*Registration Page*/
+.registration-page {
+    display: flex;
+    padding: 40px;
+    background: white;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+h1 {
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #4d1487;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6A1B9A;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 30px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 15px;
+    border-radius: 6px;
+}
+
+.input-group input:focus {
+    border-color: #6a1b9a;
+    box-shadow: 0 0 5px rgba(106, 27, 154, 0.3);
+}
+
+body {
+font-family: var(--font-family);
+background-color: var(--background-color);
+color: var(--text-color);
+line-height: 1.6;
+min-height: 100vh;
+padding-top: 70px; /* Space for fixed header */
+}
+
+.container {
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+font-weight: 600;
+line-height: 1.3;
+margin-bottom: 0.5em;
+}
+
+a {
+text-decoration: none;
+color: var(--primary-color);
+transition: color var(--transition-normal);
+}
+
+a:hover {
+color: var(--primary-light);
+}
+
+/* Header Styles */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+color: white;
+padding: 15px 0;
+box-shadow: var(--shadow-md);
+z-index: 1000;
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-size: 1.8rem;
+font-weight: 700;
+color: white;
+margin: 0;
+letter-spacing: 1px;
+text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+.navbar {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.nav-links {
+display: flex;
+gap: 15px;
+}
+
+.nav-item {
+color: white;
+font-weight: 500;
+padding: 8px 12px;
+border-radius: var(--border-radius-md);
+transition: background-color var(--transition-normal);
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.nav-item:hover {
+background-color: rgba(255, 255, 255, 0.2);
+color: white;
+}
+
+.nav-item i {
+font-size: 0.9rem;
+}
+
+/* Search Container */
+.search-container {
+position: relative;
+display: flex;
+align-items: center;
+}
+
+#searchBox {
+padding: 10px 15px 10px 35px;
+border: none;
+border-radius: 20px;
+font-size: 0.9rem;
+width: 180px;
+transition: width var(--transition-normal), box-shadow var(--transition-normal);
+box-shadow: var(--shadow-sm);
+}
+
+#searchBox:focus {
+width: 250px;
+outline: none;
+box-shadow: var(--shadow-md);
+}
+
+.search-icon {
+position: absolute;
+left: 12px;
+color: var(--text-light);
+font-size: 0.9rem;
+pointer-events: none;
+}
+
+/* Profile Link */
+.profile-link {
+position: relative;
+display: flex;
+align-items: center;
+}
+
+.navbar-logo {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid white;
+transition: transform var(--transition-normal);
+}
+
+.profile-link:hover .navbar-logo {
+transform: scale(1.1);
+}
+
+.profile-tooltip {
+position: absolute;
+bottom: -30px;
+left: 50%;
+transform: translateX(-50%);
+background-color: rgba(0, 0, 0, 0.8);
+color: white;
+padding: 5px 10px;
+border-radius: var(--border-radius-sm);
+font-size: 0.8rem;
+white-space: nowrap;
+opacity: 0;
+visibility: hidden;
+transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.profile-link:hover .profile-tooltip {
+opacity: 1;
+visibility: visible;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+display: none;
+flex-direction: column;
+justify-content: space-between;
+width: 30px;
+height: 20px;
+background: transparent;
+border: none;
+cursor: pointer;
+}
+
+.mobile-menu-btn span {
+display: block;
+width: 100%;
+height: 2px;
+background-color: white;
+transition: transform var(--transition-normal);
+}
+
+/* Hero Section */
+.hero-section {
+text-align: center;
+padding: 40px 0;
+margin-bottom: 20px;
+}
+
+.hero-title {
+font-size: 2.2rem;
+color: var(--primary-color);
+margin-bottom: 15px;
+}
+
+.hero-subtitle {
+font-size: 1.1rem;
+color: var(--text-light);
+max-width: 800px;
+margin: 0 auto;
+}
+
+/* Controls Container */
+.controls-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: white;
+padding: 15px 20px;
+border-radius: var(--border-radius-lg);
+box-shadow: var(--shadow-md);
+margin-bottom: 30px;
+}
+
+/* Filter Panel */
+.filter-panel {
+position: fixed;
+top: 0;
+right: -350px; /* Start off-screen */
+width: 350px;
+height: 100vh;
+background-color: var(--card-color);
+box-shadow: var(--shadow-lg);
+z-index: 1500;
+transition: right var(--transition-normal);
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+
+.filter-panel.active {
+right: 0;
+}
+
+.filter-panel-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+border-bottom: 1px solid var(--border-color);
+}
+
+.filter-panel-header h3 {
+margin: 0;
+font-size: 1.2rem;
+color: var(--primary-color);
+}
+
+.close-filter-btn {
+background: none;
+border: none;
+font-size: 1.2rem;
+color: var(--text-light);
+cursor: pointer;
+transition: color var(--transition-normal);
+}
+
+.close-filter-btn:hover {
+color: var(--danger-color);
+}
+
+.filter-panel-content {
+flex: 1;
+overflow-y: auto;
+padding: 20px;
+}
+
+.filter-section {
+margin-bottom: 25px;
+}
+
+.filter-title {
+font-size: 1rem;
+margin-bottom: 15px;
+color: var(--text-color);
+font-weight: 600;
+}
+
+.filter-options {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+/* Checkbox Styling */
+.filter-checkbox {
+display: flex;
+align-items: center;
+position: relative;
+padding-left: 30px;
+cursor: pointer;
+font-size: 0.95rem;
+user-select: none;
+-webkit-user-select: none;
+color: var(--text-color);
+transition: color var(--transition-normal);
+}
+
+.filter-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: var(--background-color);
+border: 1px solid var(--border-color);
+border-radius: 4px;
+transition: all var(--transition-normal);
+}
+
+.filter-checkbox:hover .checkmark {
+border-color: var(--primary-color);
+}
+
+.filter-checkbox input:checked ~ .checkmark {
+background-color: var(--primary-color);
+border-color: var(--primary-color);
+}
+
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+.filter-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+
+.filter-checkbox .checkmark:after {
+left: 7px;
+top: 3px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+
+/* Radio Button Styling */
+.sort-radio {
+display: flex;
+align-items: center;
+position: relative;
+padding-left: 30px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 0.95rem;
+user-select: none;
+-webkit-user-select: none;
+color: var(--text-color);
+}
+
+.sort-radio input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+
+.radio-mark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: var(--background-color);
+border: 1px solid var(--border-color);
+border-radius: 50%;
+transition: all var(--transition-normal);
+}
+
+.sort-radio:hover .radio-mark {
+border-color: var(--primary-color);
+}
+
+.sort-radio input:checked ~ .radio-mark {
+border-color: var(--primary-color);
+}
+
+.radio-mark:after {
+content: "";
+position: absolute;
+display: none;
+top: 5px;
+left: 5px;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: var(--primary-color);
+}
+
+.sort-radio input:checked ~ .radio-mark:after {
+display: block;
+}
+
+/* Date Range Inputs */
+.date-range-inputs {
+display: flex;
+gap: 15px;
+}
+
+.date-input-group {
+flex: 1;
+}
+
+.date-input-group label {
+display: block;
+margin-bottom: 8px;
+font-size: 0.9rem;
+color: var(--text-light);
+}
+
+.date-input-group input {
+width: 100%;
+padding: 10px;
+border: 1px solid var(--border-color);
+border-radius: var(--border-radius-md);
+background-color: var(--background-color);
+color: var(--text-color);
+transition: border-color var(--transition-normal);
+}
+
+.date-input-group input:focus {
+outline: none;
+border-color: var(--primary-color);
+}
+
+/* Filter Panel Footer */
+.filter-panel-footer {
+padding: 15px 20px;
+border-top: 1px solid var(--border-color);
+display: flex;
+justify-content: space-between;
+}
+
+.reset-filters-btn,
+.apply-filters-btn {
+padding: 10px 15px;
+border-radius: var(--border-radius-md);
+font-weight: 500;
+cursor: pointer;
+transition: all var(--transition-normal);
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.reset-filters-btn {
+background-color: var(--background-color);
+color: var(--text-color);
+border: 1px solid var(--border-color);
+}
+
+.reset-filters-btn:hover {
+background-color: #f0f0f0;
+}
+
+.apply-filters-btn {
+background-color: var(--primary-color);
+color: white;
+border: none;
+}
+
+.apply-filters-btn:hover {
+background-color: var(--primary-light);
+}
+
+/* Active Filters */
+.active-filters {
+background-color: var(--card-color);
+border-radius: var(--border-radius-md);
+padding: 15px 20px;
+margin-bottom: 20px;
+box-shadow: var(--shadow-sm);
+display: none; /* Hidden by default, shown when filters are active */
+}
+
+.active-filters.visible {
+display: block;
+}
+
+.active-filters-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.active-filters-header h4 {
+margin: 0;
+font-size: 1rem;
+color: var(--text-color);
+}
+
+.clear-all-btn {
+background: none;
+border: none;
+color: var(--primary-color);
+font-size: 0.9rem;
+cursor: pointer;
+transition: color var(--transition-normal);
+}
+
+.clear-all-btn:hover {
+color: var (--primary-light);
+text-decoration: underline;
+}
+
+.filter-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.filter-tag {
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 5px 10px;
+background-color: var(--background-color);
+border-radius: 20px;
+font-size: 0.85rem;
+color: var(--text-color);
+}
+
+.filter-tag .remove-tag {
+background: none;
+border: none;
+color: var(--text-light);
+cursor: pointer;
+font-size: 0.8rem;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: color var(--transition-normal);
+}
+
+.filter-tag .remove-tag:hover {
+color: var(--danger-color);
+}
+
+/* Overlay for Filter Panel */
+.filter-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1400;
+display: none;
+}
+
+.filter-overlay.active {
+display: block;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .filter-panel,
+.dark-mode .active-filters {
+background-color: #1e1e1e;
+}
+
+.dark-mode .checkmark,
+.dark-mode .radio-mark,
+.dark-mode .date-input-group input {
+background-color: #2a2a2a;
+border-color: #444;
+}
+
+.dark-mode .filter-tag {
+background-color: #2a2a2a;
+}
+
+.dark-mode .reset-filters-btn {
+background-color: #2a2a2a;
+border-color: #444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+.filter-panel {
+width: 300px;
+}
+
+.date-range-inputs {
+flex-direction: column;
+gap: 10px;
+}
+}
+
+@media (max-width: 480px) {
+.filter-panel {
+width: 100%;
+right: -100%;
+}
+
+.filter-panel-footer {
+flex-direction: column;
+gap: 10px;
+}
+
+.reset-filters-btn,
+.apply-filters-btn {
+width: 100%;
+justify-content: center;
+}
+}
+
+/* Event Grid */
+.event-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 30px;
+margin-bottom: 50px;
+}
+
+/* Event Card */
+.event-card {
+position: relative;
+background-color: var(--card-color);
+border-radius: var(--border-radius-lg);
+overflow: hidden;
+box-shadow: var(--shadow-md);
+transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.event-card:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-lg);
+}
+
+.event-image {
+width: 100%;
+height: 180px;
+object-fit: cover;
+transition: transform var(--transition-slow);
+}
+
+.event-card:hover .event-image {
+transform: scale(1.05);
+}
+
+.event-content {
+padding: 20px;
+}
+
+.event-title {
+font-size: 1.3rem;
+margin-bottom: 10px;
+color: var(--text-color);
+}
+
+.event-meta {
+display: grid;
+gap: 8px;
+margin-bottom: 15px;
+}
+
+.event-meta p {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 0.9rem;
+color: var(--text-light);
+}
+
+.event-meta i {
+color: var(--primary-color);
+}
+
+/* Event Badges */
+.event-badge {
+position: absolute;
+padding: 5px 10px;
+border-radius: 20px;
+font-size: 0.75rem;
+font-weight: 600;
+z-index: 10;
+}
+
+.event-badge.online {
+top: 10px;
+left: 10px;
+background-color: var(--info-color);
+color: white;
+}
+
+.event-badge.offline {
+top: 10px;
+left: 10px;
+background-color: var(--success-color);
+color: white;
+}
+
+.event-badge.hybrid {
+top: 10px;
+left: 10px;
+background-color: var(--warning-color);
+color: black;
+}
+
+.event-badge.priority {
+top: 10px;
+right: 10px;
+}
+
+.event-badge.high {
+background-color: var(--danger-color);
+color: white;
+}
+
+.event-badge.medium {
+background-color: var(--warning-color);
+color: black;
+}
+
+.event-badge.low {
+background-color: var(--success-color);
+color: white;
+}
+
+/* View Details Button */
+.view-details-btn {
+width: 100%;
+padding: 10px 0;
+background-color: var(--primary-color);
+color: white;
+border: none;
+border-radius: var(--border-radius-md);
+font-weight: 500;
+cursor: pointer;
+transition: background-color var(--transition-normal);
+}
+
+.view-details-btn:hover {
+background-color: var(--primary-light);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.event-details-content {
+    max-width: 100%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+/* Event Details View */
+.event-details-view {
+    text-align: center;
+}
+
+.event-details-view img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-details-view h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.event-info {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.event-info-item {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.event-info-item strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.find-team-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.find-team-btn:hover {
+    background-color: var(--primary-light);
+}
+
+/* Dark mode adjustments */
+body.dark-mode {
+    --background-color: #121212;
+    --card-color: #1e1e1e;
+    --text-color: #f0f0f0;
+    --text-light: #b0b0b0;
+    --border-color: #333333;
+}
+
+.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.dark-mode .event-info-item {
+    background-color: #2a2a2a;
+}
+
+.dark-mode .close {
+    color: #fff;
+}
+
+.dark-mode .close:hover {
+    color: #ff4444;
+}
+/* No Events Message */
+.no-events {
+text-align: center;
+padding: 40px 0;
+font-size: 1.2rem;
+color: var(--text-light);
+}
+
+.no-events i {
+font-size: 1.5rem;
+color: var(--primary-color);
+margin-right: 10px;
+}
+
+/* Footer */
+.footer {
+background-color: #2c2c2c;
+color: white;
+padding: 50px 0 20px;
+margin-top: 50px;
+}
+
+.footer-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 30px;
+margin-bottom: 30px;
+}
+
+.footer-title {
+font-size: 1.3rem;
+margin-bottom: 20px;
+color: white;
+}
+
+.social-links {
+display: flex;
+gap: 15px;
+margin-top: 15px;
+}
+
+.social-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+background-color: rgba(255, 255, 255, 0.1);
+border-radius: 50%;
+color: white;
+transition: background-color var(--transition-normal);
+}
+
+.social-links a:hover {
+background-color: var(--primary-color);
+}
+
+.footer-links {
+list-style: none;
+}
+
+.footer-links li {
+margin-bottom: 10px;
+}
+
+.footer-links a {
+color: #cccccc;
+transition: color var(--transition-normal);
+}
+
+.footer-links a:hover {
+color: white;
+}
+
+.footer-bottom {
+text-align: center;
+padding-top: 20px;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+font-size: 0.9rem;
+color: #cccccc;
+}
+
+/* Back to Top Button */
+#backToTop {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 50px;
+height: 50px;
+background-color: var(--primary-color);
+color: white;
+border: none;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+box-shadow: var(--shadow-md);
+transition: all var(--transition-normal);
+z-index: 900;
+}
+
+#backToTop:hover {
+background-color: var(--primary-light);
+transform: translateY(-5px);
+}
+
+/* Dark Mode */
+body.dark-mode {
+--background-color: #121212;
+--card-color: #1e1e1e;
+--text-color: #f0f0f0;
+--text-light: #b0b0b0;
+--border-color: #333333;
+}
+
+.dark-mode .controls-container,
+.dark-mode .modal-content,
+.dark-mode #searchBox {
+background-color: #1e1e1e;
+color: var(--text-color);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group select,
+.dark-mode .form-group textarea {
+background-color: #2a2a2a;
+color: var(--text-color);
+border-color: #333333;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+.hero-title {
+font-size: 1.8rem;
+}
+
+.hero-subtitle {
+font-size: 1rem;
+}
+
+.controls-container {
+flex-direction: column;
+gap: 15px;
+align-items: stretch;
+}
+
+.filter-container {
+width: 100%;
+justify-content: space-between;
+}
+}
+
+@media (max-width: 768px) {
+.header-container {
+flex-wrap: wrap;
+}
+
+.mobile-menu-btn {
+display: flex;
+}
+
+.navbar {
+display: none;
+width: 100%;
+flex-direction: column;
+align-items: flex-start;
+margin-top: 15px;
+}
+
+.navbar.active {
+display: flex;
+}
+
+.nav-links {
+flex-direction: column;
+width: 100%;
+}
+
+.search-container {
+width: 100%;
+margin-top: 15px;
+}
+
+#searchBox {
+width: 100%;
+}
+
+.form-row {
+grid-template-columns: 1fr;
+gap: 15px;
+}
+
+.event-grid {
+grid-template-columns: 1fr;
+}
+}
+
+@media (max-width: 480px) {
+body {
+padding-top: 60px;
+}
+
+.logo {
+font-size: 1.5rem;
+}
+
+.hero-title {
+font-size: 1.5rem;
+}
+
+.modal-content {
+padding: 20px;
+}
+
+.footer-content {
+grid-template-columns: 1fr;
+}
+}
+</style>
 </head>
 <body>
     <header>
@@ -36,131 +1329,226 @@
             </div>
         </nav>
     </header>
-
-    <h1>FIND YOUR EXCITING EVENTS OVER HERE!</h1>
-    <div class="add-event-button">
-        <button id="addEventBtn">+ Add New Event</button>
-    </div>
-
-    <div id="eventModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add New Event</h2>
-            <form id="eventForm">
-                <div class="form-group">
-                    <label for="eventTitle">Event Title:</label>
-                    <input type="text" id="eventTitle" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventDate">Date:</label>
-                    <input type="date" id="eventDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventTime">Time:</label>
-                    <input type="time" id="eventTime" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventVenue">Venue:</label>
-                    <input type="text" id="eventVenue" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventMode">Mode:</label>
-                    <select id="eventMode" required>
-                        <option value="Online">Online</option>
-                        <option value="Offline">Offline</option>
-                        <option value="Hybrid">Hybrid</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="eventPriority">Priority:</label>
-                    <select id="eventPriority" required>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="eventImage">Image URL:</label>
-                    <input type="url" id="eventImage" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventDescription">Description:</label>
-                    <textarea id="eventDescription" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="teamSize">Team Size:</label>
-                    <input type="text" id="teamSize" placeholder="e.g., 2-5 members" required>
-                </div>
-                <div class="form-group">
-                    <label for="prizeWorth">Prize Worth:</label>
-                    <input type="text" id="prizeWorth" placeholder="e.g., 30,000 Rs/-" required>
-                </div>
-                <button type="submit">Add Event</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Event Details Modal -->
-    <div id="eventDetailsModal" class="modal">
-        <div class="modal-content event-details-content">
-            <span class="close" id="closeDetails">&times;</span>
-            <div id="eventDetailsContent"></div>
-        </div>
-    </div>
-
-    <div class="event-grid" id="eventGrid">
-        <!-- Existing events -->
-        <div class="event-link" data-title="AI Workshop" data-date="March 25, 2025" data-time="10:00 AM" 
-            data-venue="Tech Hub" data-mode="Online" data-priority="High" 
-            data-description="Join us for an exciting AI workshop where you'll learn about the latest developments in artificial intelligence and machine learning. Perfect for beginners and intermediate developers."
-            data-team-size="2-4 members" data-prize-worth="25,000 Rs/-"
-            data-image="photos/ai workshop.png">
-            <div class="event-card">
-                <img src="photos/ai workshop.png" alt="Event Image" class="event-image">
-                <h2>AI Workshop</h2>
-                <p>Date: 25 March 2025</p>
-                <p>Priority: High</p>
+  <main class="main-content">
+        <div class="container">
+            <div class="hero-section">
+                <h2 class="hero-title">Discover & Connect with Amazing Hackathons</h2>
+                <p class="hero-subtitle">Find the perfect event to showcase your skills, build your network, and win exciting prizes</p>
             </div>
-        </div>
-        <div class="event-link" data-title="Google Hackathon" data-date="April 10, 2025" data-time="09:00 AM"
-            data-venue="Google Office" data-mode="Hybrid" data-priority="Medium"
-            data-description="Join the Google Hackathon to solve real-world problems using Google technologies. Great opportunity to showcase your skills and win amazing prizes."
-            data-team-size="3-5 members" data-prize-worth="50,000 Rs/-"
-            data-image="photos/google_hackathon.jpg">
-            <div class="event-card">
-                <img src="photos/google_hackathon.jpg" alt="Event Image" class="event-image">
-                <h2>Google Hackathon</h2>
-                <p>Date: 10 April 2025</p>
-                <p>Priority: Medium</p>
+            
+            <div class="controls-container">
+                <button id="darkModeToggle" class="control-button">
+                    <i class="fas fa-moon"></i> 
+                    <span>Dark Mode</span>
+                </button>
+                <button id="filterToggleBtn" class="control-button">
+                    <i class="fas fa-filter"></i>
+                    <span>Filters</span>
+                </button>
+                <button id="addEventBtn" class="control-button primary-btn">
+                    <i class="fas fa-plus"></i> 
+                    <span>Add New Event</span>
+                </button>
             </div>
-        </div>
-        <div class="event-link" data-title="Healthcare Hackathon with AI" data-date="May 20, 2025" data-time="11:00 AM"
-            data-venue="Virtual Platform" data-mode="Online" data-priority="High"
-            data-description="Join us for an exciting hackathon where clinicians, engineers, business leaders, and students collaborate to develop AI-powered solutions that address real-world clinical challenges."
-            data-team-size="2-5 members" data-prize-worth="30,000 Rs/-"
-            data-image="photos/Healthcare_AI.webp">
-            <div class="event-card">
-                <img src="photos/Healthcare_AI.webp" alt="Event Image" class="event-image">
-                <h2>Healthcare Hackathon with AI</h2>
-                <p>Date: 20 May 2025</p>
-                <p>Priority: High</p>
+
+            <!-- Advanced Filter Panel -->
+            <div id="advancedFilterPanel" class="filter-panel">
+                <div class="filter-panel-header">
+                    <h3>Filter & Sort Events</h3>
+                    <button id="closeFilterPanel" class="close-filter-btn" aria-label="Close filter panel">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="filter-panel-content">
+                    <div class="filter-section">
+                        <h4 class="filter-title">Event Mode</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="mode" value="online"> Online
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="mode" value="offline"> Offline
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="mode" value="hybrid"> Hybrid
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h4 class="filter-title">Priority Level</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="priority" value="high"> High
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="priority" value="medium"> Medium
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="priority" value="low"> Low
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h4 class="filter-title">Date Range</h4>
+                        <div class="date-range-inputs">
+                            <div class="date-input-group">
+                                <label for="startDate">From</label>
+                                <input type="date" id="startDate" name="startDate">
+                            </div>
+                            <div class="date-input-group">
+                                <label for="endDate">To</label>
+                                <input type="date" id="endDate" name="endDate">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h4 class="filter-title">Sort By</h4>
+                        <div class="sort-options">
+                            <label class="sort-radio">
+                                <input type="radio" name="sortBy" value="dateAsc" checked> 
+                                <span class="radio-mark"></span>
+                                Date (Earliest First)
+                            </label>
+                            <label class="sort-radio">
+                                <input type="radio" name="sortBy" value="dateDesc"> 
+                                <span class="radio-mark"></span>
+                                Date (Latest First)
+                            </label>
+                            <label class="sort-radio">
+                                <input type="radio" name="sortBy" value="prizeDesc"> 
+                                <span class="radio-mark"></span>
+                                Prize (Highest First)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-panel-footer">
+                    <button id="resetFilters" class="reset-filters-btn">
+                        <i class="fas fa-undo"></i> Reset Filters
+                    </button>
+                    <button id="applyFilters" class="apply-filters-btn">
+                        <i class="fas fa-check"></i> Apply Filters
+                    </button>
+                </div>
             </div>
-        </div>
-        
-        <div class="event-link" data-title="IITJ Hackathon" data-date="September 15, 2025" data-time="10:00 AM"
-        data-venue="IIT Jodhpur" data-mode="offline" data-priority="Medium"
-        data-description="Registration open till 1st September."
-        data-team-size="3-5 members" data-prize-worth="25,000 Rs/-"
-        data-image="photos/IITJ.png">
-        <div class="event-card">
-            <div class="event-badge offline">Offline</div>
-            <div class="event-badge priority medium">Medium Priority</div>
-            <img src="photos/IITJ.png" alt="IIT Jodhpur Hackathon" class="event-image">
-            <div class="event-content">
-                <h2 class="event-title">IIT Jodhpur Hackathon</h2>
-                <div class="event-meta">
-                    <p><i class="fas fa-calendar"></i> 15-18 September 2025</p>
-                    <p><i class="fas fa-trophy"></i> Prize: 25,000 Rs/-</p>
+
+            <!-- Active Filters Display -->
+            <div id="activeFilters" class="active-filters">
+                <div class="active-filters-header">
+                    <h4>Active Filters:</h4>
+                    <button id="clearAllFilters" class="clear-all-btn">Clear All</button>
+                </div>
+                <div class="filter-tags" id="filterTagsContainer">
+                    <!-- Filter tags will be added here dynamically -->
+                </div>
+            </div>
+
+            <p id="noEventsMessage" class="no-events" style="display: none;">
+                <i class="fas fa-rocket"></i> No events found for this filter. Try a different one!
+            </p>
+
+            <div class="event-grid" id="eventGrid">
+                <!-- Existing events -->
+                <div class="event-link" data-title="AI Workshop" data-date="March 25, 2025" data-time="10:00 AM" 
+                    data-venue="Tech Hub" data-mode="Online" data-priority="High" 
+                    data-description="Join us for an exciting AI workshop where you'll learn about the latest developments in artificial intelligence and machine learning. Perfect for beginners and intermediate developers."
+                    data-team-size="2-4 members" data-prize-worth="25,000 Rs/-"
+                    data-image="photos/ai workshop.png">
+                    <div class="event-card">
+                        <div class="event-badge online">Online</div>
+                        <div class="event-badge priority high">High Priority</div>
+                        <img src="photos/ai workshop.png" alt="AI Workshop" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">AI Workshop</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 25 March 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 25,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 2-4 members</p>
+                            </div>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-link" data-title="Google Hackathon" data-date="April 10, 2025" data-time="09:00 AM"
+                    data-venue="Google Office" data-mode="Hybrid" data-priority="Medium"
+                    data-description="Join the Google Hackathon to solve real-world problems using Google technologies. Great opportunity to showcase your skills and win amazing prizes."
+                    data-team-size="3-5 members" data-prize-worth="50,000 Rs/-"
+                    data-image="photos/google_hackathon.jpg">
+                    <div class="event-card">
+                        <div class="event-badge hybrid">Hybrid</div>
+                        <div class="event-badge priority medium">Medium Priority</div>
+                        <img src="photos/google_hackathon.jpg" alt="Google Hackathon" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">Google Hackathon</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 10 April 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 50,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 3-5 members</p>
+                            </div>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-link" data-title="IITJ Hackathon" data-date="September 15, 2025" data-time="10:00 AM"
+                    data-venue="IIT Jodhpur" data-mode="offline" data-priority="Medium"
+                    data-description="Registration open till 1st September."
+                    data-team-size="3-5 members" data-prize-worth="25,000 Rs/-"
+                    data-image="photos/IITJ.png">
+                    <div class="event-card">
+                        <div class="event-badge offline">Offline</div>
+                        <div class="event-badge priority medium">Medium Priority</div>
+                        <img src="photos/IITJ.png" alt="IIT Jodhpur Hackathon" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">IIT Jodhpur Hackathon</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 15-18 September 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 25,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 3-5 members</p>
+                            </div>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-link" data-title="Healthcare Hackathon with AI" data-date="May 20, 2025" data-time="11:00 AM"
+                    data-venue="Virtual Platform" data-mode="Online" data-priority="High"
+                    data-description="Join us for an exciting hackathon where clinicians, engineers, business leaders, and students collaborate to develop AI-powered solutions that address real-world clinical challenges."
+                    data-team-size="2-5 members" data-prize-worth="30,000 Rs/-"
+                    data-image="photos/Healthcare_AI.webp">
+                    <div class="event-card">
+                        <div class="event-badge online">Online</div>
+                        <div class="event-badge priority high">High Priority</div>
+                        <img src="photos/Healthcare_AI.webp" alt="Healthcare Hackathon with AI" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">Healthcare Hackathon with AI</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 20 May 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 30,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 2-5 members</p>
+                            </div>
+                            <button class="view-details-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-link" data-title="Game Development Hackathon" data-date="January 28, 2026" data-time="10:00 AM"
+                    data-venue="Gaming Arena, Pune" data-mode="offline" data-priority="High"
+                    data-description="Create an innovative game in 48 hours and compete for exciting prizes."
+                    data-team-size="4-6 members" data-prize-worth="85,000 Rs/-"
+                    data-image="photos/game_dev.avif">
                     <div class="event-card">
                         <div class="event-badge offline">Offline</div>
                         <div class="event-badge priority high">High Priority</div>
@@ -172,123 +1560,134 @@
                                 <p><i class="fas fa-trophy"></i> Prize: 85,000 Rs/-</p>
                                 <p><i class="fas fa-users"></i> Team: 4-6 members</p>
                             </div>
-                            <button class="view-details-btn">View Details</button>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-link" data-title="National Coding Championship" data-date="August 1, 2025" data-time="8:00 PM"
+                    data-venue="Virtual Event" data-mode="online" data-priority="Medium"
+                    data-description="Join the biggest coding competition of the year. Showcase your programming skills and win exciting prizes."
+                    data-team-size="individual" data-prize-worth="1500 Rs/-"
+                    data-image="photos/nationalcode.avif">
+                    <div class="event-card">
+                        <div class="event-badge online">Online</div>
+                        <div class="event-badge priority medium">Medium Priority</div>
+                        <img src="photos/nationalcode.avif" alt="National Coding Championship" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">National Coding Championship</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 1 August 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 1,500 Rs/-</p>
+                                <p><i class="fas fa-user"></i> Individual</p>
+                            </div>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-link" data-title="IIIT Vadodara Hackathon" data-date="April 18, 2025" data-time="10:30 AM"
+                    data-venue="Gandhinagar" data-mode="offline" data-priority="Medium"
+                    data-description="HACKIIITV is the annual hackathon exclusively for students of the Indian Institute of Information Technology, Vadodara (IIITV) and IIITV Diu. It's a dynamic event where students form teams and collaborate intensively over a short period to develop innovative software projects. Students from all colleges can take part."
+                    data-team-size="4 members" data-prize-worth="50,000 Rs/-"
+                    data-image="photos/hack_IIITV.png">
+                    <div class="event-card">
+                        <div class="event-badge offline">Offline</div>
+                        <div class="event-badge priority medium">Medium Priority</div>
+                        <img src="photos/hack_IIITV.png" alt="HackIIITV 2025" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">HackIIITV 2025</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 18-21 April 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 50,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 4 members</p>
+                            </div>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-link" data-title="Hack This Fall 2025" data-date="June 8, 2025" data-time="10:30 AM"
+                    data-venue="Virtual Event" data-mode="online" data-priority="Medium"
+                    data-description="Hack This Fall 2025 Virtual is a 36-hour online hackathon happening from June 8th to 10th, 2025, for hackers and builders worldwide! Join us from anywhere and be part of this incredible experience. Whether you're a part of our global community or just joining in, we can't wait to welcome you!"
+                    data-team-size="3-5 members" data-prize-worth="20,000 Rs/-"
+                    data-image="photos/hack_fall.webp">
+                    <div class="event-card">
+                        <div class="event-badge online">Online</div>
+                        <div class="event-badge priority medium">Medium Priority</div>
+                        <img src="photos/hack_fall.webp" alt="Hack This Fall 2025" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">Hack This Fall 2025</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 8 June 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 20,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 3-5 members</p>
+                            </div>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-link" data-title="Hack NIT Rourkela 2025" data-date="April 5, 2025" data-time="9:30 AM"
+                    data-venue="Virtual Event" data-mode="online" data-priority="Medium"
+                    data-description="HackNITR 6.0 is an exciting hackathon that challenges you to unleash your creativity and develop cutting-edge tech solutions for real-world problems. It brings together a vibrant community of tech enthusiasts, sparking innovation and collaboration. Intending to grow our local community and deliver an unforgettable experience, this event promises a thrilling mix of fun, learning, and competition. Get ready for an epic journey starting 5th April 2025!"
+                    data-team-size="4 members" data-prize-worth="35,000 Rs/-"
+                    data-image="photos/NITR.jpg">
+                    <div class="event-card">
+                        <div class="event-badge online">Online</div>
+                        <div class="event-badge priority medium">Medium Priority</div>
+                        <img src="photos/NITR.jpg" alt="Hack NITR 2025" class="event-image">
+                        <div class="event-content">
+                            <h2 class="event-title">Hack NITR 2025</h2>
+                            <div class="event-meta">
+                                <p><i class="fas fa-calendar"></i> 5 April 2025</p>
+                                <p><i class="fas fa-trophy"></i> Prize: 35,000 Rs/-</p>
+                                <p><i class="fas fa-users"></i> Team: 4 members</p>
+                            </div>
+                            <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="event-link" data-title="Game Development Hackathon" data-date="January 28, 2026" data-time="10:00 AM"
-        data-venue="Gaming Arena, Pune" data-mode="offline" data-priority="High"
-        data-description="Create an innovative game in 48 hours and compete for exciting prizes."
-        data-team-size="4-6 members" data-prize-worth="85,000 Rs/-"
-        data-image="photos/game_dev.avif">
-        <div class="event-card">
-            <div class="event-badge offline">Offline</div>
-            <div class="event-badge priority high">High Priority</div>
-            <img src="game_dev.avif" alt="Game Development Hackathon" class="event-image">
-            <div class="event-content">
-                <h2 class="event-title">Game Development Hackathon</h2>
-                <div class="event-meta">
-                    <p><i class="fas fa-calendar"></i> 28 January 2026</p>
-                    <p><i class="fas fa-trophy"></i> Prize: 85,000 Rs/-</p>
-                    <p><i class="fas fa-users"></i> Team: 4-6 members</p>
-                </div>
-                <button class="view-details-btn">View Details</button>
-            </div>
-        </div>
-        </div>
-
-        <div class="event-link" data-title="National Coding Championship" data-date="August 1, 2025" data-time="8:00 PM"
-        data-venue="Virtual Event" data-mode="online" data-priority="Medium"
-        data-description="Join the biggest coding competition of the year. Showcase your programming skills and win exciting prizes."
-        data-team-size="individual" data-prize-worth="1500 Rs/-"
-        data-image="photos/nationalcode.avif">
-        <div class="event-card">
-            <div class="event-badge online">Online</div>
-            <div class="event-badge priority medium">Medium Priority</div>
-            <img src="photos/nationalcode.avif" alt="National Coding Championship" class="event-image">
-            <div class="event-content">
-                <h2 class="event-title">National Coding Championship</h2>
-                <div class="event-meta">
-                    <p><i class="fas fa-calendar"></i> 1 August 2025</p>
-                    <p><i class="fas fa-trophy"></i> Prize: 1,500 Rs/-</p>
-                    <p><i class="fas fa-user"></i> Individual</p>
-                </div>
-                <button class="view-details-btn">View Details</button>
-            </div>
-        </div>
-        </div>
-
-        <div class="event-link" data-title="IIIT Vadodara Hackathon" data-date="April 18, 2025" data-time="10:30 AM"
-        data-venue="Gandhinagar" data-mode="offline" data-priority="Medium"
-        data-description="HACKIIITV is the annual hackathon exclusively for students of the Indian Institute of Information Technology, Vadodara (IIITV) and IIITV Diu. It's a dynamic event where students form teams and collaborate intensively over a short period to develop innovative software projects. Students from all colleges can take part."
-        data-team-size="4 members" data-prize-worth="50,000 Rs/-"
-        data-image="photos/hack_IIITV.png">
-        <div class="event-card">
-            <div class="event-badge offline">Offline</div>
-            <div class="event-badge priority medium">Medium Priority</div>
-            <img src="photos/hack_IIITV.png" alt="HackIIITV 2025" class="event-image">
-            <div class="event-content">
-                <h2 class="event-title">HackIIITV 2025</h2>
-                <div class="event-meta">
-                    <p><i class="fas fa-calendar"></i> 18-21 April 2025</p>
-                    <p><i class="fas fa-trophy"></i> Prize: 50,000 Rs/-</p>
-                    <p><i class="fas fa-users"></i> Team: 4 members</p>
-                </div>
-                <button class="view-details-btn">View Details</button>
-            </div>
-        </div>
-        </div>
-
-        <div class="event-link" data-title="Hack This Fall 2025" data-date="June 8, 2025" data-time="10:30 AM"
-        data-venue="Virtual Event" data-mode="online" data-priority="Medium"
-        data-description="Hack This Fall 2025 Virtual is a 36-hour online hackathon happening from June 8th to 10th, 2025, for hackers and builders worldwide! Join us from anywhere and be part of this incredible experience. Whether you're a part of our global community or just joining in, we can't wait to welcome you!"
-        data-team-size="3-5 members" data-prize-worth="20,000 Rs/-"
-        data-image="photos/hack_fall.webp">
-        <div class="event-card">
-            <div class="event-badge online">Online</div>
-            <div class="event-badge priority medium">Medium Priority</div>
-            <img src="photos/hack_fall.webp" alt="Hack This Fall 2025" class="event-image">
-            <div class="event-content">
-                <h2 class="event-title">Hack This Fall 2025</h2>
-                <div class="event-meta">
-                    <p><i class="fas fa-calendar"></i> 8 June 2025</p>
-                    <p><i class="fas fa-trophy"></i> Prize: 20,000 Rs/-</p>
-                    <p><i class="fas fa-users"></i> Team: 3-5 members</p>
-                </div>
-            <button class="view-details-btn">View Details</button>
-            </div>
-        </div>
-        </div>
-
-        <div class="event-link" data-title="Hack NIT Rourkela 2025" data-date="April 5, 2025" data-time="9:30 AM"
-        data-venue="Virtual Event" data-mode="online" data-priority="Medium"
-        data-description="HackNITR 6.0 is an exciting hackathon that challenges you to unleash your creativity and develop cutting-edge tech solutions for real-world problems. It brings together a vibrant community of tech enthusiasts, sparking innovation and collaboration. Intending to grow our local community and deliver an unforgettable experience, this event promises a thrilling mix of fun, learning, and competition. Get ready for an epic journey starting 5th April 2025!"
-        data-team-size="4 members" data-prize-worth="35,000 Rs/-"
-        data-image="photos/NITR.jpg">
-        <div class="event-card">
-            <div class="event-badge online">Online</div>
-            <div class="event-badge priority medium">Medium Priority</div>
-            <img src="photos/NITR.jpg" alt="Hack NITR 2025" class="event-image">
-            <div class="event-content">
-                <h2 class="event-title">Hack NITR 2025</h2>
-                <div class="event-meta">
-                    <p><i class="fas fa-calendar"></i> 5 April 2025</p>
-                    <p><i class="fas fa-trophy"></i> Prize: 35,000 Rs/-</p>
-                    <p><i class="fas fa-users"></i> Team: 4 members</p>
-                </div>
-                <button class="view-details-btn">View Details</button>
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
     </main>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">UniConnect</h3>
+                    <p>Connect, Collaborate, Conquer</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@uniconnect.com</p>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UniConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Back to Top Button -->
-    <button id="backToTop" aria-label="Back to top">
+    <button id="backToTop" aria-label="Back to top">...</button>
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -369,11 +1768,740 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2025 UniConnect. All Rights Reserved.</p>
-    </footer>
+  
+     <!-- Add this script tag at the end of the body -->
+     <script>
+        // Modal Elements
+  const modal = document.getElementById('eventModal');
+  const detailsModal = document.getElementById('eventDetailsModal');
+  const addEventBtn = document.getElementById('addEventBtn');
+  const closeBtn = document.querySelector('.close');
+  const closeDetailsBtn = document.getElementById('closeDetails');
+  const eventForm = document.getElementById('eventForm');
+  const eventGrid = document.getElementById('eventGrid');
+  const eventDetailsContent = document.getElementById('eventDetailsContent');
+  const findTeamButtonContainer = document.getElementById('findTeamButtonContainer');
+  
+  // Check if modal elements exist
+  console.log('Modal elements:', {
+    modal,
+    detailsModal,
+    addEventBtn,
+    closeBtn,
+    closeDetailsBtn,
+    eventForm,
+    eventGrid,
+    eventDetailsContent,
+    findTeamButtonContainer
+  });
+  
+  // Open modal
+  addEventBtn.onclick = function() {
+      modal.style.display = "block";
+  }
+  
+  // Close modals
+  closeBtn.onclick = function() {
+      modal.style.display = "none";
+  }
+  
+  closeDetailsBtn.onclick = function() {
+      detailsModal.style.display = "none";
+  }
+  
+  // Close modals when clicking outside
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+      if (event.target == detailsModal) {
+          detailsModal.style.display = "none";
+      }
+  }
+  
+  // Existing JavaScript code (keep what you already have)
+  
+  // Filter Panel Toggle
+  const filterToggleBtn = document.getElementById('filterToggleBtn');
+  const filterPanel = document.getElementById('advancedFilterPanel');
+  const filterOverlay = document.createElement('div');
+  filterOverlay.className = 'filter-overlay';
+  document.body.appendChild(filterOverlay);
+  
+  // Toggle filter panel
+  filterToggleBtn.addEventListener('click', () => {
+      filterPanel.classList.add('active');
+      filterOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+  });
+  
+  // Close filter panel when clicking on overlay
+  filterOverlay.addEventListener('click', () => {
+      filterPanel.classList.remove('active');
+      filterOverlay.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Close filter panel with close button
+  document.getElementById('closeFilterPanel').addEventListener('click', () => {
+      filterPanel.classList.remove('active');
+      filterOverlay.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Initialize active filters
+  const activeFilters = {
+      mode: [],
+      priority: [],
+      dateRange: {
+          start: null,
+          end: null
+      },
+      sortBy: 'dateAsc' // Default sort
+  };
+  
+  // Apply filters
+  document.getElementById('applyFilters').addEventListener('click', () => {
+      // Get mode filters
+      const modeCheckboxes = document.querySelectorAll('input[name="mode"]:checked');
+      activeFilters.mode = Array.from(modeCheckboxes).map(checkbox => checkbox.value.toLowerCase());
+      
+      // Get priority filters
+      const priorityCheckboxes = document.querySelectorAll('input[name="priority"]:checked');
+      activeFilters.priority = Array.from(priorityCheckboxes).map(checkbox => checkbox.value.toLowerCase());
+      
+      // Get date range
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+      activeFilters.dateRange.start = startDate ? new Date(startDate) : null;
+      activeFilters.dateRange.end = endDate ? new Date(endDate) : null;
+      
+      // Get sort option
+      const sortOption = document.querySelector('input[name="sortBy"]:checked');
+      activeFilters.sortBy = sortOption ? sortOption.value : 'dateAsc';
+      
+      // Apply filters to events
+      applyFiltersToEvents();
+      
+      // Update active filters display
+      updateActiveFiltersDisplay();
+      
+      // Close filter panel
+      filterPanel.classList.remove('active');
+      filterOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+  });
+  
+  // Reset filters
+  document.getElementById('resetFilters').addEventListener('click', () => {
+      // Uncheck all checkboxes
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+          checkbox.checked = false;
+      });
+      
+      // Reset date inputs
+      document.getElementById('startDate').value = '';
+      document.getElementById('endDate').value = '';
+      
+      // Reset sort to default
+      document.querySelector('input[value="dateAsc"]').checked = true;
+      
+      // Clear active filters
+      activeFilters.mode = [];
+      activeFilters.priority = [];
+      activeFilters.dateRange.start = null;
+      activeFilters.dateRange.end = null;
+      activeFilters.sortBy = 'dateAsc';
+  });
+  
+  // Clear all filters
+  document.getElementById('clearAllFilters').addEventListener('click', () => {
+      // Clear active filters
+      activeFilters.mode = [];
+      activeFilters.priority = [];
+      activeFilters.dateRange.start = null;
+      activeFilters.dateRange.end = null;
+      activeFilters.sortBy = 'dateAsc';
+      
+      // Reset UI
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+          checkbox.checked = false;
+      });
+      document.getElementById('startDate').value = '';
+      document.getElementById('endDate').value = '';
+      document.querySelector('input[value="dateAsc"]').checked = true;
+      
+      // Apply filters (show all events)
+      applyFiltersToEvents();
+      
+      // Update active filters display
+      updateActiveFiltersDisplay();
+  });
+  
+  // Apply filters to events
+  function applyFiltersToEvents() {
+      const events = document.querySelectorAll('.event-link');
+      let visibleCount = 0;
+      
+      events.forEach(event => {
+          const mode = event.dataset.mode.toLowerCase();
+          const priority = event.dataset.priority.toLowerCase();
+          const dateStr = event.dataset.date;
+          const eventDate = new Date(dateStr);
+          
+          // Check if event matches all active filters
+          let modeMatch = activeFilters.mode.length === 0 || activeFilters.mode.includes(mode);
+          let priorityMatch = activeFilters.priority.length === 0 || activeFilters.priority.includes(priority);
+          
+          // Date range check
+          let dateMatch = true;
+          if (activeFilters.dateRange.start) {
+              dateMatch = dateMatch && eventDate >= activeFilters.dateRange.start;
+          }
+          if (activeFilters.dateRange.end) {
+              dateMatch = dateMatch && eventDate <= activeFilters.dateRange.end;
+          }
+          
+          // Show/hide event based on filter match
+          if (modeMatch && priorityMatch && dateMatch) {
+              event.style.display = '';
+              visibleCount++;
+          } else {
+              event.style.display = 'none';
+          }
+      });
+      
+      // Sort events
+      sortEvents(activeFilters.sortBy);
+      
+      // Show/hide "no events" message
+      const noEventsMessage = document.getElementById('noEventsMessage');
+      if (visibleCount === 0) {
+          noEventsMessage.style.display = 'block';
+      } else {
+          noEventsMessage.style.display = 'none';
+      }
+  }
+  
+  // Sort events
+  function sortEvents(sortBy) {
+      const eventGrid = document.getElementById('eventGrid');
+      const events = Array.from(eventGrid.querySelectorAll('.event-link'));
+      
+      events.sort((a, b) => {
+          if (sortBy === 'dateAsc') {
+              const dateA = new Date(a.dataset.date);
+              const dateB = new Date(b.dataset.date);
+              return dateA - dateB;
+          } else if (sortBy === 'dateDesc') {
+              const dateA = new Date(a.dataset.date);
+              const dateB = new Date(b.dataset.date);
+              return dateB - dateA;
+          } else if (sortBy === 'prizeDesc') {
+              const prizeA = parseInt(a.dataset.prizeWorth.replace(/[^0-9]/g, '')) || 0;
+              const prizeB = parseInt(b.dataset.prizeWorth.replace(/[^0-9]/g, '')) || 0;
+              return prizeB - prizeA;
+          }
+          return 0;
+      });
+      
+      // Reorder elements in the DOM
+      events.forEach(event => {
+          eventGrid.appendChild(event);
+      });
+  }
+  
+  // Update active filters display
+  function updateActiveFiltersDisplay() {
+      const activeFiltersContainer = document.getElementById('activeFilters');
+      const filterTagsContainer = document.getElementById('filterTagsContainer');
+      
+      // Clear existing tags
+      filterTagsContainer.innerHTML = '';
+      
+      // Check if any filters are active
+      const hasActiveFilters = 
+          activeFilters.mode.length > 0 || 
+          activeFilters.priority.length > 0 || 
+          activeFilters.dateRange.start || 
+          activeFilters.dateRange.end ||
+          activeFilters.sortBy !== 'dateAsc';
+      
+      if (!hasActiveFilters) {
+          activeFiltersContainer.classList.remove('visible');
+          return;
+      }
+      
+      activeFiltersContainer.classList.add('visible');
+      
+      // Add mode filters
+      activeFilters.mode.forEach(mode => {
+          addFilterTag(mode, 'mode');
+      });
+      
+      // Add priority filters
+      activeFilters.priority.forEach(priority => {
+          addFilterTag(priority, 'priority');
+      });
+      
+      // Add date range filter
+      if (activeFilters.dateRange.start || activeFilters.dateRange.end) {
+          const start = activeFilters.dateRange.start ? activeFilters.dateRange.start.toLocaleDateString() : 'Any';
+          const end = activeFilters.dateRange.end ? activeFilters.dateRange.end.toLocaleDateString() : 'Any';
+          addFilterTag(`Date: ${start} - ${end}`, 'date');
+      }
+      
+      // Add sort filter
+      if (activeFilters.sortBy !== 'dateAsc') {
+          const sortLabels = {
+              'dateDesc': 'Latest First',
+              'prizeDesc': 'Highest Prize'
+          };
+          addFilterTag(`Sort: ${sortLabels[activeFilters.sortBy]}`, 'sort');
+      }
+  }
+  
+  // Add filter tag
+  function addFilterTag(text, type) {
+      const filterTagsContainer = document.getElementById('filterTagsContainer');
+      const tag = document.createElement('div');
+      tag.className = 'filter-tag';
+      tag.innerHTML = `
+          ${text}
+          <button class="remove-tag" data-type="${type}" data-value="${text}">
+              <i class="fas fa-times"></i>
+          </button>
+      `;
+      
+      // Add remove functionality
+      const removeBtn = tag.querySelector('.remove-tag');
+      removeBtn.addEventListener('click', () => {
+          removeFilter(type, text);
+      });
+      
+      filterTagsContainer.appendChild(tag);
+  }
+  
+  // Remove filter
+  function removeFilter(type, value) {
+      switch (type) {
+          case 'mode':
+              activeFilters.mode = activeFilters.mode.filter(mode => mode !== value.toLowerCase());
+              document.querySelector(`input[name="mode"][value="${value}"]`).checked = false;
+              break;
+          case 'priority':
+              activeFilters.priority = activeFilters.priority.filter(priority => priority !== value.toLowerCase());
+              document.querySelector(`input[name="priority"][value="${value}"]`).checked = false;
+              break;
+          case 'date':
+              activeFilters.dateRange.start = null;
+              activeFilters.dateRange.end = null;
+              document.getElementById('startDate').value = '';
+              document.getElementById('endDate').value = '';
+              break;
+          case 'sort':
+              activeFilters.sortBy = 'dateAsc';
+              document.querySelector('input[value="dateAsc"]').checked = true;
+              break;
+      }
+      
+      applyFiltersToEvents();
+      updateActiveFiltersDisplay();
+  }
+  
+  // Initialize the page
+  document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM fully loaded - initializing page');
+      
+      // Set up event listeners for filter panel
+      setupFilterPanel();
+      
+      // Apply default filters
+      applyFiltersToEvents();
+      
+      // Initialize modals
+      initializeModals();
+  });
+  
+  // Initialize modals
+  function initializeModals() {
+    console.log('Initializing modals');
     
-    <script src="main.js"></script>
+    // Get modal elements
+    const modal = document.getElementById('eventModal');
+    const detailsModal = document.getElementById('eventDetailsModal');
+    const addEventBtn = document.getElementById('addEventBtn');
+    const closeBtn = document.querySelector('.close');
+    const closeDetailsBtn = document.getElementById('closeDetails');
+    const eventForm = document.getElementById('eventForm');
+    const eventGrid = document.getElementById('eventGrid');
+    const eventDetailsContent = document.getElementById('eventDetailsContent');
+    const findTeamButtonContainer = document.getElementById('findTeamButtonContainer');
+    
+    // Check if modal elements exist
+    console.log('Modal elements:', {
+      modal,
+      detailsModal,
+      addEventBtn,
+      closeBtn,
+      closeDetailsBtn,
+      eventForm,
+      eventGrid,
+      eventDetailsContent,
+      findTeamButtonContainer
+    });
+    
+    // Set up event listeners for modals
+    if (addEventBtn) {
+      addEventBtn.onclick = function() {
+        modal.style.display = "block";
+      }
+    }
+    
+    if (closeBtn) {
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      }
+    }
+    
+    if (closeDetailsBtn) {
+      closeDetailsBtn.onclick = function() {
+        detailsModal.style.display = "none";
+      }
+    }
+    
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+      if (event.target == detailsModal) {
+        detailsModal.style.display = "none";
+      }
+    }
+    
+    // Add click event listeners to all view details buttons
+    const viewDetailsButtons = document.querySelectorAll('.view-details-btn');
+    console.log('Found view details buttons:', viewDetailsButtons.length);
+    
+    viewDetailsButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        console.log('View details button clicked');
+        const eventLink = this.closest('.event-link');
+        console.log('Event link found:', eventLink);
+        
+        if (eventLink) {
+          console.log('Event data:', eventLink.dataset);
+          const eventData = {
+            title: eventLink.dataset.title,
+            date: eventLink.dataset.date,
+            time: eventLink.dataset.time,
+            venue: eventLink.dataset.venue,
+            mode: eventLink.dataset.mode,
+            priority: eventLink.dataset.priority,
+            description: eventLink.dataset.description,
+            teamSize: eventLink.dataset.teamSize,
+            prizeWorth: eventLink.dataset.prizeWorth,
+            image: eventLink.dataset.image
+          };
+          
+          // Update modal content
+          eventDetailsContent.innerHTML = `
+            <img src="${eventData.image}" alt="${eventData.title}" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;">
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">${eventData.title}</h2>
+            <div class="event-info">
+              <div class="event-info-item">
+                <strong>Date:</strong> ${new Date(eventData.date).toLocaleDateString()} at ${eventData.time}
+              </div>
+              <div class="event-info-item">
+                <strong>Venue:</strong> ${eventData.venue}
+              </div>
+              <div class="event-info-item">
+                <strong>Mode:</strong> ${eventData.mode}
+              </div>
+              <div class="event-info-item">
+                <strong>Priority:</strong> ${eventData.priority}
+              </div>
+              <div class="event-info-item">
+                <strong>Team Size:</strong> ${eventData.teamSize}
+              </div>
+              <div class="event-info-item">
+                <strong>Prize Worth:</strong> ${eventData.prizeWorth}
+              </div>
+              <div class="event-info-item">
+                <strong>Description:</strong><br>
+                ${eventData.description}
+              </div>
+            </div>
+          `;
+          
+          // Add Find Team button
+          findTeamButtonContainer.innerHTML = `
+            <button class="find-team-btn" style="background-color: var(--primary-color); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+              <i class="fas fa-users"></i> Find Team Members
+            </button>
+          `;
+          
+          // Show modal
+          detailsModal.style.display = 'block';
+          console.log('Modal displayed');
+        }
+      });
+    });
+  }
+  
+  // Set up filter panel
+  function setupFilterPanel() {
+      // Make sure checkboxes reflect active filters
+      activeFilters.mode.forEach(mode => {
+          document.querySelector(`input[name="mode"][value="${mode}"]`).checked = true;
+      });
+      
+      activeFilters.priority.forEach(priority => {
+          document.querySelector(`input[name="priority"][value="${priority}"]`).checked = true;
+      });
+      
+      // Set date inputs
+      if (activeFilters.dateRange.start) {
+          const dateStr = activeFilters.dateRange.start.toISOString().split('T')[0];
+          document.getElementById('startDate').value = dateStr;
+      }
+      
+      if (activeFilters.dateRange.end) {
+          const dateStr = activeFilters.dateRange.end.toISOString().split('T')[0];
+          document.getElementById('endDate').value = dateStr;
+      }
+      
+      // Set sort radio
+      document.querySelector(`input[name="sortBy"][value="${activeFilters.sortBy}"]`).checked = true;
+  }
+  
+  // Search functionality
+  function searchEvents() {
+      const searchBox = document.getElementById('searchBox');
+      const searchTerm = searchBox.value.toLowerCase();
+      const events = document.querySelectorAll('.event-link');
+      let visibleCount = 0;
+  
+      events.forEach(event => {
+          const title = event.dataset.title.toLowerCase();
+          const description = event.dataset.description.toLowerCase();
+          const venue = event.dataset.venue.toLowerCase();
+          
+          if (title.includes(searchTerm) || 
+              description.includes(searchTerm) || 
+              venue.includes(searchTerm)) {
+              event.style.display = '';
+              visibleCount++;
+          } else {
+              event.style.display = 'none';
+          }
+      });
+  
+      // Show/hide "no events" message
+      const noEventsMessage = document.getElementById('noEventsMessage');
+      if (visibleCount === 0) {
+          noEventsMessage.style.display = 'block';
+      } else {
+          noEventsMessage.style.display = 'none';
+      }
+  }
+  
+  // Mobile menu toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navbar = document.querySelector('.navbar');
+  
+  mobileMenuBtn.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active');
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          navbar.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+      }
+  });
+  
+  // Back to top button
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+          backToTopBtn.style.display = 'flex';
+      } else {
+          backToTopBtn.style.display = 'none';
+      }
+  });
+  
+  backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
+  
+// Dark Mode Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Check for saved dark mode preference in localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> <span>Light Mode</span>';
+    }
+
+    // Add event listener for the dark mode toggle button
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            // Save dark mode preference in localStorage
+            localStorage.setItem('darkMode', 'enabled');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> <span>Light Mode</span>';
+        } else {
+            // Remove dark mode preference from localStorage
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> <span>Dark Mode</span>';
+        }
+    });
+});
+  
+  // Event Form Submission
+  eventForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form values
+      const title = document.getElementById('eventTitle').value;
+      const date = document.getElementById('eventDate').value;
+      const time = document.getElementById('eventTime').value;
+      const venue = document.getElementById('eventVenue').value;
+      const mode = document.getElementById('eventMode').value;
+      const priority = document.getElementById('eventPriority').value;
+      const teamSize = document.getElementById('teamSize').value;
+      const prizeWorth = document.getElementById('prizeWorth').value;
+      const imageUrl = document.getElementById('eventImage').value;
+      const description = document.getElementById('eventDescription').value;
+      
+      // Create new event element
+      const eventElement = document.createElement('div');
+      eventElement.className = 'event-link';
+      eventElement.dataset.title = title;
+      eventElement.dataset.date = date;
+      eventElement.dataset.time = time;
+      eventElement.dataset.venue = venue;
+      eventElement.dataset.mode = mode;
+      eventElement.dataset.priority = priority;
+      eventElement.dataset.teamSize = teamSize;
+      eventElement.dataset.prizeWorth = prizeWorth;
+      eventElement.dataset.description = description;
+      eventElement.dataset.image = imageUrl;
+      
+      // Create event card HTML
+      eventElement.innerHTML = `
+          <div class="event-card">
+              <div class="event-badge ${mode.toLowerCase()}">${mode}</div>
+              <div class="event-badge priority ${priority.toLowerCase()}">${priority} Priority</div>
+              <img src="${imageUrl}" alt="${title}" class="event-image">
+              <div class="event-content">
+                  <h2 class="event-title">${title}</h2>
+                  <div class="event-meta">
+                      <p><i class="fas fa-calendar"></i> ${new Date(date).toLocaleDateString()}</p>
+                      <p><i class="fas fa-trophy"></i> Prize: ${prizeWorth}</p>
+                      <p><i class="fas fa-users"></i> Team: ${teamSize}</p>
+                  </div>
+                  <button class="view-details-btn" onclick="showEventDetails(this)">View Details</button>
+              </div>
+          </div>
+      `;
+      
+      // Add event to grid
+      eventGrid.appendChild(eventElement);
+      
+      // Close modal and reset form
+      modal.style.display = 'none';
+      eventForm.reset();
+  });
+  
+  // Add this to test if the modal is working
+  document.addEventListener('DOMContentLoaded', function() {
+      console.log('Modal elements:', {
+          detailsModal,
+          eventDetailsContent,
+          findTeamButtonContainer
+      });
+  });
+  
+  // Function to show event details
+  function showEventDetails(button) {
+    console.log('showEventDetails called');
+    const eventLink = button.closest('.event-link');
+    console.log('Event link found:', eventLink);
+    
+    if (eventLink) {
+      console.log('Event data:', eventLink.dataset);
+      const eventData = {
+        title: eventLink.dataset.title,
+        date: eventLink.dataset.date,
+        time: eventLink.dataset.time,
+        venue: eventLink.dataset.venue,
+        mode: eventLink.dataset.mode,
+        priority: eventLink.dataset.priority,
+        description: eventLink.dataset.description,
+        teamSize: eventLink.dataset.teamSize,
+        prizeWorth: eventLink.dataset.prizeWorth,
+        image: eventLink.dataset.image
+      };
+      
+      // Update modal content
+      const eventDetailsContent = document.getElementById('eventDetailsContent');
+      const findTeamButtonContainer = document.getElementById('findTeamButtonContainer');
+      const detailsModal = document.getElementById('eventDetailsModal');
+      
+      eventDetailsContent.innerHTML = `
+        <img src="${eventData.image}" alt="${eventData.title}" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;">
+        <h2 style="color: var(--primary-color); margin-bottom: 20px;">${eventData.title}</h2>
+        <div class="event-info">
+          <div class="event-info-item">
+            <strong>Date:</strong> ${new Date(eventData.date).toLocaleDateString()} at ${eventData.time}
+          </div>
+          <div class="event-info-item">
+            <strong>Venue:</strong> ${eventData.venue}
+          </div>
+          <div class="event-info-item">
+            <strong>Mode:</strong> ${eventData.mode}
+          </div>
+          <div class="event-info-item">
+            <strong>Priority:</strong> ${eventData.priority}
+          </div>
+          <div class="event-info-item">
+            <strong>Team Size:</strong> ${eventData.teamSize}
+          </div>
+          <div class="event-info-item">
+            <strong>Prize Worth:</strong> ${eventData.prizeWorth}
+          </div>
+          <div class="event-info-item">
+            <strong>Description:</strong><br>
+            ${eventData.description}
+          </div>
+        </div>
+      `;
+      
+      // Add Find Team button
+      findTeamButtonContainer.innerHTML = `
+        <button class="find-team-btn" style="background-color: var(--primary-color); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+          <i class="fas fa-users"></i> Find Team Members
+        </button>
+      `;
+      
+      // Show modal
+      detailsModal.style.display = 'block';
+      console.log('Modal displayed');
+    }
+  }
+      </script>
+
 </body>
 </html>
